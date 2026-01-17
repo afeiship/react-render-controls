@@ -3,12 +3,19 @@
     "requireCleanWorkingDir": false
   },
   "hooks": {
-    "after:init": ["t2k"],
-    "after:bump": ["yarn run build"],
-    "after:release": ["yarn pkg get name | cnpm sync"]
+    "after:init": [
+      "t2k"
+    ],
+    "after:bump": [
+      "yarn run build"
+    ],
+    "after:release": [
+      "yarn pkg get name | cnpm sync"
+    ]
   },
   "github": {
     "release": true,
+    "autoGenerate": true,
     "proxy": "http://127.0.0.1:9090"
   }
 }
