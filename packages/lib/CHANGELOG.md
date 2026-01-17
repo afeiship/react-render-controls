@@ -1,12 +1,5 @@
 # Changelog
 
-## [1.1.0](https://github.com/afeiship/react-render-controls/compare/1.0.1...v1.1.0) (2026-01-17)
-
-### ✨ Features
-
-* **claude:** expand script execution permissions ([23bbf94](https://github.com/afeiship/react-render-controls/commit/23bbf94cf84492738bcf3e86abee8e55cd6a65d5))
-* **lib:** add react-render-controls component library ([844e531](https://github.com/afeiship/react-render-controls/commit/844e53117350983aee57d4ce0321a1ae1f44b164))
-* **lib:** configure release-it for automated changelogging and publishing ([8c9481a](https://github.com/afeiship/react-render-controls/commit/8c9481ae8add92bff2cd75ff3f07ab8c8017e1b0))
 ## 1.0.1 (2026-01-17)
 
 ### ✨ Features
