@@ -1,5 +1,20 @@
 {
-  "name": "rails-module-association_basics",
+  "name": "@jswork/react-render-controls",
+  "version": "1.0.0",
+  "description": "A lightweight, headless React component library for declarative conditional rendering, pattern matching, and list mapping. SSR-friendly, zero UI, and fully type-safe.",
+  "homepage": "https://js.work",
+  "type": "module",
   "private": true,
-  "dependencies": {}
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "cd packages/example && yarn run dev",
+    "predocs": "rm -rf docs && node scripts/markdown.js",
+    "docs": "cd packages/example && yarn run build",
+    "postdocs": "cp -R packages/example/dist docs",
+    "preln:build": "yarn run docs",
+    "ln:build": "cd packages/lib && yarn run build",
+    "ln:publish": "cd packages/lib && yarn run release"
+  }
 }
