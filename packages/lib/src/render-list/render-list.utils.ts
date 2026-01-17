@@ -13,6 +13,7 @@ export function isRenderFn<T>(render: RenderProp<T>): render is RenderFn<T> {
 export function getKey<T>(
   item: T,
   index: number,
+  items: readonly T[],
   keyBy: KeyBy<T> | undefined,
 ): string | number {
   if (keyBy === undefined) {
@@ -20,7 +21,7 @@ export function getKey<T>(
   }
 
   if (typeof keyBy === 'function') {
-    return keyBy(item, index);
+    return keyBy(item, index, items);
   }
 
   const value = (item as Record<string, unknown>)[keyBy as string];

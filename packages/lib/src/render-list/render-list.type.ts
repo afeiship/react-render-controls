@@ -1,6 +1,6 @@
 import { type ElementType, type ReactNode } from 'react';
 
-export type RenderFn<T> = (item: T, index: number) => ReactNode;
+export type RenderFn<T> = (item: T, index: number, items: readonly T[]) => ReactNode;
 
 export interface RenderComponentConfig<P> {
   component: ElementType<P & { children?: ReactNode }>;
@@ -15,7 +15,7 @@ export interface RenderComponentConfig<P> {
 
 export type RenderProp<T> = RenderFn<T> | RenderComponentConfig<any>;
 
-export type KeyBy<T> = ((item: T, index: number) => string | number) | keyof T;
+export type KeyBy<T> = ((item: T, index: number, items: readonly T[]) => string | number) | keyof T;
 
 export interface RenderListProps<T> {
   items: readonly T[];

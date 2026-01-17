@@ -31,11 +31,11 @@ export default function RenderList<T>({ items, render, keyBy }: RenderListProps<
   return (
     <>
       {items.map((item, index) => {
-        const key = getKey(item, index, keyBy);
+        const key = getKey(item, index, items, keyBy);
 
         // If render is a function, call it directly
         if (isRenderFn(render)) {
-          return <React.Fragment key={key}>{render(item, index)}</React.Fragment>;
+          return <React.Fragment key={key}>{render(item, index, items)}</React.Fragment>;
         }
 
         // If render is component config, wrap props automatically
