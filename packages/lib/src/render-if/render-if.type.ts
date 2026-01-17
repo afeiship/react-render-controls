@@ -1,4 +1,4 @@
-import { type ReactElement } from 'react';
+import { type ReactNode } from 'react';
 
 export interface RenderIfProps {
   /**
@@ -12,5 +12,5 @@ export interface RenderIfProps {
    * - 1 child: renders when `when` is true, nothing when false
    * - 2 children: first renders when `when` is true, second when false
    */
-  children: [ReactElement] | [ReactElement, ReactElement];
+  children: ReactNode;
 }
