@@ -5,7 +5,8 @@
     "tagName": "v${version}"
   },
   "npm": {
-    "publish": true
+    "publish": true,
+    "increment": "patch"
   },
   "hooks": {
     "after:bump": [
@@ -23,11 +24,13 @@
         "types": [
           {
             "type": "feat",
-            "section": "✨ Features"
+            "section": "✨ Features",
+            "release": "minor"
           },
           {
             "type": "fix",
-            "section": "🐛 Bug Fixes"
+            "section": "🐛 Bug Fixes",
+            "release": "patch"
           },
           {
             "type": "chore",
@@ -35,7 +38,8 @@
           },
           {
             "type": "docs",
-            "section": "📝 Documentation"
+            "section": "📝 Documentation",
+            "release": "patch"
           },
           {
             "type": "style",
@@ -43,11 +47,13 @@
           },
           {
             "type": "refactor",
-            "section": "♻️ Code Refactoring"
+            "section": "♻️ Code Refactoring",
+            "release": "patch"
           },
           {
             "type": "perf",
-            "section": "⚡ Performance Improvements"
+            "section": "⚡ Performance Improvements",
+            "release": "patch"
           },
           {
             "type": "test",
