@@ -1,4 +1,4 @@
-import React, { type ReactNode, type ElementType } from 'react';
+import { type ElementType, type ReactNode } from 'react';
 
 export type RenderFn<T> = (item: T, index: number) => ReactNode;
 
