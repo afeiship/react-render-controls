@@ -1,4 +1,4 @@
-import ReactRenderControls from '@jswork/react-render-controls/src/main';
+import RenderListExample from './examples/render-list';
 import '@jswork/react-render-controls/src/style.scss';
 
 function App() {
@@ -7,9 +7,8 @@ function App() {
       <div className="badge badge-warning absolute right-0 top-0 m-4">
         Build Time: {BUILD_TIME}
       </div>
-      <ReactRenderControls className="debug-red">
-        abc
-      </ReactRenderControls>
+      <h1 className="mb-6 text-2xl font-bold">React Render Controls Examples</h1>
+      <RenderListExample />
     </div>
   );
 }
