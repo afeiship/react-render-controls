@@ -1,6 +1,6 @@
 import { RenderList } from '@jswork/react-render-controls/src/main';
 import { mockUsers } from '../data';
-import UserCard from '../UserCard';
+import UserCard from './UserCard';
 
 export function ComponentStyleExample() {
   return (
