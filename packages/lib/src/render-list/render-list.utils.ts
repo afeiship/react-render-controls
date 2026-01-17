@@ -1,4 +1,5 @@
 import type { RenderProp, RenderFn, KeyBy } from './render-list.type';
+import { isDev } from '../shared/env';
 
 /**
  * Type guard: check if render is a function type
@@ -26,9 +27,11 @@ export function getKey<T>(
 
   const value = (item as Record<string, unknown>)[keyBy as string];
   if (value === undefined || value === null) {
-    console.warn(
-      `RenderList: keyBy="${String(keyBy)}" but the field is undefined in ${JSON.stringify(item)}`,
-    );
+    if (isDev) {
+      console.warn(
+        `RenderList: keyBy="${String(keyBy)}" but the field is undefined in ${JSON.stringify(item)}`,
+      );
+    }
     return index;
   }
 
