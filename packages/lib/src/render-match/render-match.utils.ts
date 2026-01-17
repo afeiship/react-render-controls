@@ -28,5 +28,13 @@ export function findMatchIndex(
  * Get all possible values from items (flatten string arrays)
  */
 export function getAllValues(items: readonly MatchValue[]): string[] {
-  return items.flatMap((item) => (typeof item === 'string' ? item : item));
+  const result: string[] = [];
+  for (const item of items) {
+    if (typeof item === 'string') {
+      result.push(item);
+    } else {
+      result.push(...item);
+    }
+  }
+  return result;
 }
