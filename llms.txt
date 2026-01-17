@@ -1,0 +1,254 @@
+# React Render Controls
+
+> React Render Controls is a lightweight, headless React component library for declarative conditional rendering, pattern matching, and list mapping. SSR-friendly, zero UI, and fully type-safe.
+
+**Important notes for agents:**
+- All components are logic-only with no built-in styling
+- Components are tree-shakable and have minimal dependencies
+- Full TypeScript support with comprehensive type definitions
+- SSR/SSR-friendly with no runtime overhead
+- Each component supports multiple rendering patterns (function, component config, etc.)
+- Comprehensive examples provided for each component
+
+## Components
+
+### RenderList
+Declarative list rendering with support for both function and component-based rendering patterns.
+
+**Features:**
+- Function-style rendering: `(item, index, items) => ReactNode`
+- Component-style rendering with automatic prop mapping
+- Custom key generation strategies
+- Access to index and full items array
+
+**Usage:**
+```tsx
+// Function style
+<RenderList items={users} render={(user) => <UserCard user={user} />} keyBy="id" />
+
+// Component style
+<RenderList
+  items={users}
+  render={{ component: UserCard, dataKey: "user", props: { variant: 'compact' } }}
+  keyBy="id"
+/>
+
+// With index and items
+<RenderList
+  items={users}
+  render={(user, index, items) => (
+    <div>{index + 1} / {items.length}: {user.name}</div>
+  )}
+/>
+```
+
+**Props:**
+- `items`: readonly T[] - The data array to render
+- `render`: RenderProp<T> - Function or component config for rendering each item
+- `keyBy?`: KeyBy<T> - Strategy for generating unique keys
+
+**Type:**
+```typescript
+type RenderFn<T> = (item: T, index: number, items: readonly T[]) => ReactNode;
+
+interface RenderComponentConfig<P> {
+  component: ElementType<P & { children?: ReactNode }>;
+  dataKey?: string;
+  props?: P;
+}
+
+type RenderProp<T> = RenderFn<T> | RenderComponentConfig<any>;
+```
+
+### RenderIf
+Conditional rendering component supporting if/else patterns with automatic warning for invalid usage.
+
+**Features:**
+- Single child: render when true, nothing when false
+- Two children: if/else pattern
+- Development warnings for invalid children count
+- Zero runtime overhead in production
+
+**Usage:**
+```tsx
+// Single child
+<RenderIf when={isLoggedIn}>
+  <Dashboard />
+</RenderIf>
+
+// Two children (if/else)
+<RenderIf when={isLoggedIn}>
+  <Dashboard />
+  <Login />
+</RenderIf>
+```
+
+**Props:**
+- `when`: boolean - Condition to determine which child to render
+- `children`: ReactNode - Children (1-2 elements)
+
+### RenderMatch
+Pattern matching component that renders the child matching the given value.
+
+**Features:**
+- Match single values to children
+- Match multiple values to the child (array syntax)
+- Development warnings for unmatched values
+- Useful for status-based rendering
+
+**Usage:**
+```tsx
+// Basic matching
+<RenderMatch value="success" items={['pending', 'success', 'error']}>
+  <PendingState />
+  <SuccessState />
+  <ErrorState />
+</RenderMatch>
+
+// Multiple values per child
+<RenderMatch
+  value="processing"
+  items={[['pending', 'processing'], 'completed', ['failed', 'error']]}
+>
+  <LoadingState />
+  <SuccessState />
+  <ErrorState />
+</RenderMatch>
+```
+
+**Props:**
+- `value`: T - The value to match against items
+- `items`: readonly MatchValue[] - List of match values
+- `children`: ReactNode - Children corresponding to items
+
+**Type:**
+```typescript
+type MatchValue = string | readonly string[];
+```
+
+### RenderSwitch
+Switch-style conditional rendering with multiple conditions and fallback support.
+
+**Features:**
+- Multiple case conditions
+- First matching case wins
+- Optional fallback for no matches
+- Development warnings for cases/children mismatch
+
+**Usage:**
+```tsx
+// Basic usage
+<RenderSwitch cases={[isLoading, isError, isSuccess]}>
+  <LoadingSpinner />
+  <ErrorDisplay />
+  <SuccessMessage />
+</RenderSwitch>
+
+// With fallback
+<RenderSwitch
+  cases={[isAdmin, isModerator]}
+  fallback={<AccessDenied />}
+>
+  <AdminPanel />
+  <ModeratorPanel />
+</RenderSwitch>
+```
+
+**Props:**
+- `cases`: readonly boolean[] - Array of boolean conditions
+- `children`: ReactNode - Children corresponding to cases
+- `fallback?`: ReactNode - Fallback content when no cases match
+
+## Project Structure
+
+```
+packages/lib/src/
+├── render-list/
+│   ├── index.tsx
+│   ├── render-list.type.ts
+│   └── render-list.utils.ts
+├── render-if/
+│   ├── index.tsx
+│   └── render-if.type.ts
+├── render-match/
+│   ├── index.tsx
+│   ├── render-match.type.ts
+│   └── render-match.utils.ts
+├── render-switch/
+│   ├── index.tsx
+│   ├── render-switch.type.ts
+│   └── render-switch.utils.ts
+├── shared/
+│   └── env.ts
+├── main.tsx
+├── global.d.ts
+└── style.scss
+```
+
+## Development Guidelines
+
+### Code Style
+- Use separate files for types, utils, and components
+- English comments and JSDoc
+- Type-safe implementations with TypeScript
+- Environment-aware warnings (development only)
+
+### File Organization
+- `index.tsx` - Main component implementation
+- `*.type.ts` - Type definitions
+- `*.utils.ts` - Utility functions
+- `components/` - Example sub-components
+
+### Adding New Components
+1. Create component directory under `packages/lib/src/`
+2. Follow the structure: types, utils, component
+3. Add exports to `packages/lib/src/main.tsx`
+4. Create examples in `packages/example/src/examples/[component-name]/`
+5. Update `app.tsx` with new tab
+
+### Examples Structure
+```
+examples/
+└── [component-name]/
+    ├── index.tsx
+    ├── components/
+    │   ├── Example1.tsx
+    │   ├── Example2.tsx
+    │   └── ...
+    └── data.ts (if needed)
+```
+
+## Installation
+
+```bash
+npm install @jswork/react-render-controls
+```
+
+## Import Styles (Optional)
+
+```tsx
+import '@jswork/react-render-controls/dist/style.css';
+```
+
+## TypeScript Support
+
+All components are fully typed. Import types as needed:
+
+```typescript
+import {
+  RenderList,
+  RenderListProps,
+  RenderFn,
+  RenderComponentConfig,
+  RenderIf,
+  RenderIfProps,
+  RenderMatch,
+  RenderMatchProps,
+  RenderSwitch,
+  RenderSwitchProps
+} from '@jswork/react-render-controls';
+```
+
+## License
+
+MIT
