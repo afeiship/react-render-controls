@@ -1,11 +1,13 @@
 {
   "git": {
-    "requireCleanWorkingDir": false
+    "requireCleanWorkingDir": false,
+    "commitMessage": "chore(release): ${version}",
+    "tagName": "v${version}"
+  },
+  "npm": {
+    "publish": true
   },
   "hooks": {
-    "after:init": [
-      "t2k"
-    ],
     "after:bump": [
       "yarn run build"
     ],
@@ -13,9 +15,59 @@
       "yarn pkg get name | cnpm sync"
     ]
   },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "infile": "CHANGELOG.md",
+      "preset": {
+        "name": "conventionalcommits",
+        "types": [
+          {
+            "type": "feat",
+            "section": "✨ Features"
+          },
+          {
+            "type": "fix",
+            "section": "🐛 Bug Fixes"
+          },
+          {
+            "type": "chore",
+            "hidden": true
+          },
+          {
+            "type": "docs",
+            "section": "📝 Documentation"
+          },
+          {
+            "type": "style",
+            "hidden": true
+          },
+          {
+            "type": "refactor",
+            "section": "♻️ Code Refactoring"
+          },
+          {
+            "type": "perf",
+            "section": "⚡ Performance Improvements"
+          },
+          {
+            "type": "test",
+            "hidden": true
+          },
+          {
+            "type": "build",
+            "hidden": true
+          },
+          {
+            "type": "ci",
+            "hidden": true
+          }
+        ]
+      }
+    }
+  },
   "github": {
     "release": true,
-    "autoGenerate": true,
+    "releaseName": "${version}",
     "proxy": "http://127.0.0.1:9090"
   }
 }
