@@ -31,8 +31,9 @@ pnpm add @jswork/react-render-controls
 __GENERATE_DAPP__
   ```
 
-## preview
+## demo + documenation
 - https://afeiship.github.io/react-render-controls/
+- https://aric-docs.github.io/react-render-controls-docs
 
 ## license
 Code released under [the MIT license](https://github.com/afeiship/react-render-controls/blob/master/LICENSE.txt).
