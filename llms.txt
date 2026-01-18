@@ -236,12 +236,6 @@ examples/
 npm install @jswork/react-render-controls
 ```
 
-## Import Styles (Optional)
-
-```tsx
-import '@jswork/react-render-controls/dist/style.css';
-```
-
 ## TypeScript Support
 
 All components are fully typed. Import types as needed:
