@@ -17,64 +17,18 @@
       "yarn pkg get name | cnpm sync"
     ]
   },
-  "plugins": {
-    "@release-it/conventional-changelog": {
-      "infile": "CHANGELOG.md",
-      "preset": {
-        "name": "conventionalcommits",
-        "types": [
-          {
-            "type": "feat",
-            "section": "✨ Features",
-            "release": "minor"
-          },
-          {
-            "type": "fix",
-            "section": "🐛 Bug Fixes",
-            "release": "patch"
-          },
-          {
-            "type": "chore",
-            "hidden": true
-          },
-          {
-            "type": "docs",
-            "section": "📝 Documentation",
-            "release": "patch"
-          },
-          {
-            "type": "style",
-            "hidden": true
-          },
-          {
-            "type": "refactor",
-            "section": "♻️ Code Refactoring",
-            "release": "patch"
-          },
-          {
-            "type": "perf",
-            "section": "⚡ Performance Improvements",
-            "release": "patch"
-          },
-          {
-            "type": "test",
-            "hidden": true
-          },
-          {
-            "type": "build",
-            "hidden": true
-          },
-          {
-            "type": "ci",
-            "hidden": true
-          }
-        ]
-      }
-    }
-  },
   "github": {
     "release": true,
     "releaseName": "${version}",
     "proxy": "http://127.0.0.1:9090"
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": {
+        "name": "angular"
+      },
+      "infile": "CHANGELOG.md",
+      "ignoreRecommendedBump": true
+    }
   }
 }
