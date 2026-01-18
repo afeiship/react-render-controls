@@ -127,22 +127,33 @@ type MatchValue = string | readonly string[];
 ```
 
 ### RenderSwitch
-Switch-style conditional rendering with multiple conditions and fallback support.
+Switch-style conditional rendering with multiple conditions, fallback support, and optional multi-match mode.
 
 **Features:**
 - Multiple case conditions
-- First matching case wins
+- By default (multiple=false), only first matching case wins
+- When multiple=true, renders all matching children
 - Optional fallback for no matches
 - Development warnings for cases/children mismatch
 
 **Usage:**
 ```tsx
-// Basic usage
+// Basic usage - render only first match
 <RenderSwitch cases={[isLoading, isError, isSuccess]}>
   <LoadingSpinner />
   <ErrorDisplay />
   <SuccessMessage />
 </RenderSwitch>
+// Only renders the first matching child
+
+// With multiple - render all matches
+<RenderSwitch cases={[hasRead, hasWrite, hasDelete]} multiple>
+  <ReadPermission />
+  <WritePermission />
+  <DeletePermission />
+</RenderSwitch>
+// If hasRead=true, hasWrite=true, hasDelete=false,
+// renders both ReadPermission and WritePermission
 
 // With fallback
 <RenderSwitch
@@ -158,6 +169,7 @@ Switch-style conditional rendering with multiple conditions and fallback support
 - `cases`: readonly boolean[] - Array of boolean conditions
 - `children`: ReactNode - Children corresponding to cases
 - `fallback?`: ReactNode - Fallback content when no cases match
+- `multiple?`: boolean - When true, render all matches; when false, only first match (default: false)
 
 ## Project Structure
 
