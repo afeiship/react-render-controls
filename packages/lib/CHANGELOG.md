@@ -1,5 +1,7 @@
 # Changelog
 
+## [1.2.1](https://github.com/afeiship/react-render-controls/compare/v1.2.0...v1.2.1) (2026-01-18)
+
 ## [1.2.0](https://github.com/afeiship/react-render-controls/compare/1.0.1...v1.2.0) (2026-01-18)
 
 ### ✨ Features
