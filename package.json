@@ -1,5 +1,5 @@
 {
-  "name": "@jswork/react-render-controls",
+  "name": "react-render-controls",
   "version": "1.0.0",
   "description": "A lightweight, headless React component library for declarative conditional rendering, pattern matching, and list mapping. SSR-friendly, zero UI, and fully type-safe.",
   "homepage": "https://js.work",
