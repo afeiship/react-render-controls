@@ -1,4 +1,5 @@
 {
+  "increment": "patch",
   "git": {
     "requireCleanWorkingDir": false,
     "commitMessage": "chore(release): ${version}",
