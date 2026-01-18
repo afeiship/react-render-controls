@@ -10,6 +10,10 @@ export function isRenderFn<T>(render: RenderProp<T>): render is RenderFn<T> {
 
 /**
  * Get the unique key for a list item
+ * @param item The list item
+ * @param index The index of the item in the list
+ * @param items The list of items
+ * @param keyBy The keyBy function or field name to get the key from the item
  */
 export function getKey<T>(
   item: T,

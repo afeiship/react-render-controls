@@ -2,6 +2,7 @@ import { isDev } from '../shared/env';
 
 /**
  * Find the index of the first true case
+ * @param cases An array of boolean values
  * @returns The index of the first true case, or -1 if none are true
  */
 export function findTrueCaseIndex(cases: readonly boolean[]): number {
@@ -15,6 +16,11 @@ export function findTrueCaseIndex(cases: readonly boolean[]): number {
 
 /**
  * Validate that the number of cases matches the number of children
+ * @param casesLength The number of cases
+ * @param childrenLength The number of children
+ * @param componentName The name of the component
+ * @throws An error if the number of cases is greater than the number of children
+ * @returns void
  */
 export function validateCasesLength(
   casesLength: number,
