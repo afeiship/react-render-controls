@@ -3,14 +3,14 @@ import { RenderMatch } from '@jswork/react-render-controls/src/main';
 import { allStatuses, type Status } from '../data';
 
 export function MultipleValuesExample() {
-  const [status, setStatus] = useState<Status>('pending');
+  const [status, setStatus] = useState<Status>('idle');
 
   return (
     <section>
       <h2 className="mb-4 text-xl font-bold">Multiple Values per Child</h2>
       <div className="p-4 mb-4 bg-white rounded shadow">
         <div className="flex gap-2 mb-4">
-          {(['pending', 'processing', 'completed', 'failed'] as Status[]).map((s) => (
+          {(['idle', 'loading', 'success', 'error'] as Status[]).map((s) => (
             <button
               key={s}
               className={`px-4 py-2 rounded ${
@@ -27,11 +27,11 @@ export function MultipleValuesExample() {
 
         <RenderMatch
           value={status}
-          items={[['pending', 'processing'], 'completed', ['failed', 'error']]}
+          items={[['idle', 'loading'], 'success', ['error', 'failed']]}
         >
           <div className="p-4 bg-yellow-100 border rounded">
             <p className="text-yellow-700">
-              ⏳ {status === 'pending' ? 'Pending...' : 'Processing...'}
+              ⏳ {status === 'idle' ? 'Idle...' : 'Loading...'}
             </p>
           </div>
           <div className="p-4 bg-green-100 border rounded">
