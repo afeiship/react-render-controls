@@ -3,9 +3,12 @@ import { type ReactNode } from 'react';
 export interface RenderSwitchProps {
   /**
    * Array of boolean conditions to match against children
-   * - The first true condition determines which child to render
+   * - By default (multiple=false), only the first true condition's child is rendered
+   * - When multiple=true, all true conditions' corresponding children will be rendered
    * @example [true, false, false] renders the first child
    * @example [false, true, false] renders the second child
+   * @example [true, true, false] renders first child only (default)
+   * @example [true, true, false] renders first and second children (when multiple=true)
    */
   cases: readonly boolean[];
   /**
@@ -20,4 +23,10 @@ export interface RenderSwitchProps {
    * @default null
    */
   fallback?: ReactNode;
+  /**
+   * If true, render all matching children
+   * If false (default), only render the first matching child
+   * @default false
+   */
+  multiple?: boolean;
 }

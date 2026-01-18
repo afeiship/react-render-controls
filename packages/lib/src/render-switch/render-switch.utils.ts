@@ -15,6 +15,21 @@ export function findTrueCaseIndex(cases: readonly boolean[]): number {
 }
 
 /**
+ * Find all indices of true cases
+ * @param cases An array of boolean values
+ * @returns An array of indices where cases are true
+ */
+export function findAllTrueCaseIndices(cases: readonly boolean[]): number[] {
+  const indices: number[] = [];
+  for (let i = 0; i < cases.length; i++) {
+    if (cases[i]) {
+      indices.push(i);
+    }
+  }
+  return indices;
+}
+
+/**
  * Validate that the number of cases matches the number of children
  * @param casesLength The number of cases
  * @param childrenLength The number of children

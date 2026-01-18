@@ -3,7 +3,6 @@ import RenderIfExample from './examples/render-if';
 import RenderMatchExample from './examples/render-match';
 import RenderSwitchExample from './examples/render-switch';
 import { useState } from 'react';
-import '@jswork/react-render-controls/src/style.scss';
 
 function App() {
   const [activeTab, setActiveTab] = useState('render-list');
