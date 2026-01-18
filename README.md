@@ -33,7 +33,6 @@ pnpm add @jswork/react-render-controls
   import RenderMatchExample from './examples/render-match';
   import RenderSwitchExample from './examples/render-switch';
   import { useState } from 'react';
-  import '@jswork/react-render-controls/dist/style.scss';
 
   function App() {
     const [activeTab, setActiveTab] = useState('render-list');
@@ -85,8 +84,9 @@ pnpm add @jswork/react-render-controls
   export default App;
   ```
 
-## preview
+## demo + documenation
 - https://afeiship.github.io/react-render-controls/
+- https://aric-docs.github.io/react-render-controls-docs
 
 ## license
 Code released under [the MIT license](https://github.com/afeiship/react-render-controls/blob/master/LICENSE.txt).
