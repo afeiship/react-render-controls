@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/afeiship/react-render-controls/compare/v1.2.2...v1.2.3) (2026-01-18)
+
+
+### Features
+
+* **render-switch:** add multiple matching support ([2e6e79e](https://github.com/afeiship/react-render-controls/commit/2e6e79e4eab67e56cff4b92814c096f335a7bdba))
+
 ## [1.2.2](https://github.com/afeiship/react-render-controls/compare/v1.2.1...v1.2.2) (2026-01-18)
 
 ## [1.2.1](https://github.com/afeiship/react-render-controls/compare/v1.2.0...v1.2.1) (2026-01-18)
