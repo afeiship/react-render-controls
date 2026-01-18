@@ -1,3 +1,13 @@
+<div align="center">
+  <br />
+  <img width="100" src="scripts/logo.png" alt="logo" />
+  <br />
+  <h1>react-render-controls</h1>
+  <p><em>A lightweight, headless React component library for declarative conditional rendering, pattern matching, and list mapping. SSR-friendly, zero UI, and fully type-safe.</em></p>
+</div>
+
+---
+
 # react-render-controls
 > A lightweight, headless React component library for declarative conditional rendering, pattern matching, and list mapping. SSR-friendly, zero UI, and fully type-safe.
 
