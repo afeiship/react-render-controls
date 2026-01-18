@@ -8,7 +8,12 @@
 
 ## installation
 ```shell
+# npm
 npm install -S @jswork/react-render-controls
+# yarn
+yarn add @jswork/react-render-controls
+# pnpm
+pnpm add @jswork/react-render-controls
 ```
 
 ## usage
