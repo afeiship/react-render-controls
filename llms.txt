@@ -81,6 +81,15 @@ Conditional rendering component supporting if/else patterns with automatic warni
   <Dashboard />
   <Login />
 </RenderIf>
+
+// Multiple conditions with type safety
+<RenderIf when={Boolean(detailDrawer.open && tableRow && columns)}>
+  <DetailDrawer
+    formData={tableRow!}
+    columns={columns!}
+    onClose={handleCloseDetailDrawer}
+  />
+</RenderIf>
 ```
 
 **Props:**
