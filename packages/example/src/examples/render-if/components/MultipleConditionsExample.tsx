@@ -89,7 +89,7 @@ export function MultipleConditionsExample() {
             columns={columns ? 'exists' : 'null'}
           </p>
           <p className="mt-1 font-mono text-blue-600">
-            渲染条件: {Boolean(detailDrawer.open && tableRow && columns) ? '✓ 满足' : '✗ 不满足'}
+            渲染条件: {detailDrawer.open && tableRow && columns ? '✓ 满足' : '✗ 不满足'}
           </p>
         </div>
 
