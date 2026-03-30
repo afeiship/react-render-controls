@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.4](https://github.com/afeiship/react-render-controls/compare/v1.2.3...v1.2.4) (2026-01-20)
+
+
+### Bug Fixes
+
+* **render-if-example:** remove unnecessary Boolean() call ([fba9a75](https://github.com/afeiship/react-render-controls/commit/fba9a75d60d3d831e7ab22bd3649503b58ba1053))
+
+
+### Features
+
+* **example:** add multiple conditions example for RenderIf ([3963feb](https://github.com/afeiship/react-render-controls/commit/3963feb865737b5d256d47a196e5a12a3e4a7d9c))
+* **llms.txt:** add multi-match mode to RenderSwitch ([4f60efe](https://github.com/afeiship/react-render-controls/commit/4f60efedcdd25994ac89546b0dedc5617b9f5344))
+
 ## [1.2.3](https://github.com/afeiship/react-render-controls/compare/v1.2.2...v1.2.3) (2026-01-18)
 
 

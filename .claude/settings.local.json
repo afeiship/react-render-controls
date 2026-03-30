@@ -12,7 +12,9 @@
       "Bash(npm publish:*)",
       "Bash(npm run build:*)",
       "Bash(npm run)",
-      "Bash(yarn run build)"
+      "Bash(yarn run build)",
+      "Bash(npm run type-check:*)",
+      "Bash(npx tsc:*)"
     ]
   }
 }
