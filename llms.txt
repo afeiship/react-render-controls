@@ -66,25 +66,36 @@ Conditional rendering component supporting if/else patterns with automatic warni
 **Features:**
 - Single child: render when true, nothing when false
 - Two children: if/else pattern
+- Accepts any type for `when` prop, automatically wrapped with `Boolean()` for evaluation
 - Development warnings for invalid children count
 - Zero runtime overhead in production
 
 **Usage:**
 ```tsx
-// Single child
-<RenderIf when={isLoggedIn}>
-  <Dashboard />
-</RenderIf>
-
-// Two children (if/else)
+// Boolean
 <RenderIf when={isLoggedIn}>
   <Dashboard />
   <Login />
 </RenderIf>
+
+// Number (0 is falsy, others are truthy)
+<RenderIf when={itemCount}>
+  <ItemList />
+</RenderIf>
+
+// String (empty string is falsy, others are truthy)
+<RenderIf when={errorMessage}>
+  <ErrorDisplay />
+</RenderIf>
+
+// Object/Array (null/undefined are falsy, others are truthy)
+<RenderIf when={user}>
+  <UserProfile />
+</RenderIf>
 ```
 
 **Props:**
-- `when`: boolean - Condition to determine which child to render
+- `when`: unknown - Condition to determine which child to render (wrapped with `Boolean()`)
 - `children`: ReactNode - Children (1-2 elements)
 
 ### RenderMatch

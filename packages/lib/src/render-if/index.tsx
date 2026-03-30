@@ -22,6 +22,7 @@ import { isDev } from '../shared/env';
  */
 export function RenderIf({ when, children }: RenderIfProps) {
   const childArray = Children.toArray(children);
+  const shouldRender = Boolean(when);
 
   if (childArray.length === 0) {
     return null;
@@ -36,11 +37,11 @@ export function RenderIf({ when, children }: RenderIfProps) {
   }
 
   if (childArray.length === 1) {
-    return when ? childArray[0] : null;
+    return shouldRender ? childArray[0] : null;
   }
 
   // length >= 2: first child for true, second for false
-  return when ? childArray[0] : childArray[1];
+  return shouldRender ? childArray[0] : childArray[1];
 }
 
 export default RenderIf;
