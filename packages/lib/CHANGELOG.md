@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.5](https://github.com/afeiship/react-render-controls/compare/v1.2.4...v1.2.5) (2026-03-30)
+
+
+### Features
+
+* **render-if:** enhance type flexibility and documentation ([bb50d6e](https://github.com/afeiship/react-render-controls/commit/bb50d6eebe03b7e90aa063c9d24b9a49940ee4da))
+
 ## [1.2.4](https://github.com/afeiship/react-render-controls/compare/v1.2.3...v1.2.4) (2026-01-20)
 
 
