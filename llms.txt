@@ -1,6 +1,6 @@
 # React Render Controls
 
-> React Render Controls is a lightweight, headless React component library for declarative conditional rendering, pattern matching, and list mapping. SSR-friendly, zero UI, and fully type-safe.
+> React Render Controls is a lightweight, headless React component library for declarative conditional rendering and pattern matching. SSR-friendly, zero UI, and fully type-safe.
 
 **Important notes for agents:**
 - All components are logic-only with no built-in styling
@@ -11,54 +11,6 @@
 - Comprehensive examples provided for each component
 
 ## Components
-
-### RenderList
-Declarative list rendering with support for both function and component-based rendering patterns.
-
-**Features:**
-- Function-style rendering: `(item, index, items) => ReactNode`
-- Component-style rendering with automatic prop mapping
-- Custom key generation strategies
-- Access to index and full items array
-
-**Usage:**
-```tsx
-// Function style
-<RenderList items={users} render={(user) => <UserCard user={user} />} keyBy="id" />
-
-// Component style
-<RenderList
-  items={users}
-  render={{ component: UserCard, dataKey: "user", props: { variant: 'compact' } }}
-  keyBy="id"
-/>
-
-// With index and items
-<RenderList
-  items={users}
-  render={(user, index, items) => (
-    <div>{index + 1} / {items.length}: {user.name}</div>
-  )}
-/>
-```
-
-**Props:**
-- `items`: readonly T[] - The data array to render
-- `render`: RenderProp<T> - Function or component config for rendering each item
-- `keyBy?`: KeyBy<T> - Strategy for generating unique keys
-
-**Type:**
-```typescript
-type RenderFn<T> = (item: T, index: number, items: readonly T[]) => ReactNode;
-
-interface RenderComponentConfig<P> {
-  component: ElementType<P & { children?: ReactNode }>;
-  dataKey?: string;
-  props?: P;
-}
-
-type RenderProp<T> = RenderFn<T> | RenderComponentConfig<any>;
-```
 
 ### RenderIf
 Conditional rendering component supporting if/else patterns with automatic warning for invalid usage.
@@ -186,10 +138,6 @@ Switch-style conditional rendering with multiple conditions, fallback support, a
 
 ```
 packages/lib/src/
-├── render-list/
-│   ├── index.tsx
-│   ├── render-list.type.ts
-│   └── render-list.utils.ts
 ├── render-if/
 │   ├── index.tsx
 │   └── render-if.type.ts
@@ -253,10 +201,6 @@ All components are fully typed. Import types as needed:
 
 ```typescript
 import {
-  RenderList,
-  RenderListProps,
-  RenderFn,
-  RenderComponentConfig,
   RenderIf,
   RenderIfProps,
   RenderMatch,
