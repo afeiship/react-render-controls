@@ -182,6 +182,7 @@ describe('getKey', () => {
   });
 
   it('should return index when keyBy field does not exist on item', () => {
+    // @ts-ignore
     expect(getKey(items[0], 0, items, 'missing')).toBe(0);
   });
 });
