@@ -29,7 +29,8 @@
   },
   "include": [
     "src",
-    "public"
+    "public",
+    "__tests__"
   ],
   "exclude": [
     "node_modules",
